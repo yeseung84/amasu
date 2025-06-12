@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제 상황별 상담 심화 가이드 | 인터랙티브 교육</title>
+    <!-- Chosen Palette: Calm Harmony (Deep blues and purples for serious topics, with supportive neutrals) -->
+    <!-- Application Structure Plan: This SPA is a dedicated module for handling challenging consultations. It uses a 3-tab structure: 1. Level Adjustment, 2. Slump/Motivation, and 3. Withdrawal/Closing, plus a Tools tab. This focused design allows teachers to deep-dive into each specific problem scenario, providing them with rich, situational strategies and scripts, effectively serving as an advanced training manual. -->
+    <!-- Visualization & Content Choices: Goal: Deepen understanding -> Method: Expanded text descriptions and detailed "why" explanations are added to each module. Goal: Enhance realism -> Method: The chat simulations are made longer and more complex, including handling parental objections and providing more strategic tooltips. Goal: Improve utility -> Method: The consultation chart in the "Tools" tab is made more detailed to better guide information gathering across all challenging consultation stages. The core interactive elements are retained for consistency. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        @media print {
+            body * { visibility: hidden; }
+            #printable-chart, #printable-chart * { visibility: visible; }
+            #printable-chart { position: absolute; left: 0; top: 0; width: 100%; }
+            .no-print { display: none; }
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.7; }
+        .tab-active { border-color: #4338ca; color: #4338ca; background-color: #eef2ff; }
+        .tab-inactive { border-color: transparent; color: #4b5563; }
+        .content-active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        .content-inactive { display: none; }
+        .tooltip { visibility: hidden; opacity: 0; transition: opacity 0.3s; width: 280px; }
+        .tooltip-trigger:hover .tooltip { visibility: visible; opacity: 1; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-stone-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+        
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900">문제 상황별 상담 심화 가이드</h1>
+            <p class="mt-2 text-lg text-gray-600">위기를 기회로 바꾸는 전문가의 위기관리 및 관계 유지 기술</p>
+        </header>
+
+        <nav class="flex flex-wrap justify-center border-b border-gray-200 mb-8 no-print">
+            <button data-tab="adjustment" class="nav-tab py-3 px-4 font-semibold text-sm md:text-base border-b-2 transition-colors duration-300 tab-active">1. 심화/보충 조정</button>
+            <button data-tab="slump" class="nav-tab py-3 px-4 font-semibold text-sm md:text-base border-b-2 transition-colors duration-300 tab-inactive">2. 슬럼프/의욕 저하</button>
+            <button data-tab="withdrawal" class="nav-tab py-3 px-4 font-semibold text-sm md:text-base border-b-2 transition-colors duration-300 tab-inactive">3. 퇴원/마무리</button>
+            <button data-tab="tools" class="nav-tab py-3 px-4 font-semibold text-sm md:text-base border-b-2 transition-colors duration-300 tab-inactive">상담 도구</button>
+        </nav>
+
+        <main>
+            <!-- Section 1: Level Adjustment -->
+            <section id="adjustment" class="tab-content content-active">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800">PART 1. 심화 또는 보충 조정 상담</h2>
+                    <p class="mt-2 text-gray-600">성장 속도에 맞춰 최적의 학습 환경을 제안하는 전문가의 타이밍 기술입니다.</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-gray-200 space-y-10">
+                    <div>
+                        <h3 class="text-xl font-bold text-cyan-700 mb-4">【상담의 목표: '성장'을 위한 최적의 길 제안】</h3>
+                        <p class="text-gray-700">이 상담은 '문제가 생겨서'가 아니라, **'아이가 더 잘 성장할 수 있는 기회가 보여서'** 진행하는 것입니다. 현재 반이 쉽다면 '성취감'을 넘어 '지루함'으로 가기 전에, 어렵다면 '좌절감'을 느끼기 전에 최적의 방향을 제안해야 합니다. 핵심은 '문제'가 아닌 **'가능성'**의 관점에서 접근하는 것입니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-cyan-700 mb-4">【주의사항: '진도 조절'은 예민한 문제입니다】</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                                <p class="font-bold text-red-700 mb-1">❌ 이렇게 말하지 마세요</p>
+                                <p class="text-gray-700">"이 반은 이제 안 맞는 것 같아요." (부모는 '부적응'으로 해석할 수 있습니다.)</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                                <p class="font-bold text-green-800 mb-1">⭕ 이렇게 제안하세요</p>
+                                <p class="text-gray-700">"○○이는 이 반에서도 잘하고 있지만, 더 빠르게 성장할 수 있는 방향이 보여서 제안드려요."</p>
+                            </div>
+                        </div>
+                        <blockquote class="mt-4 border-l-4 border-gray-300 pl-4 py-2 my-2 text-gray-600">
+                            <strong>리스크 관리 제안법:</strong> "부담 없이 **2주만** 변경된 방식으로 시도해보고, 아이의 반응과 성과를 다시 확인한 후 최종 결정하는 것이 어떨까요?" 라며 부모의 결정 부담을 덜어주세요.
+                        </blockquote>
+                    </div>
+                    <div>
+                         <h3 class="text-xl font-bold text-cyan-700 mb-4">【상황별 실전 스크립트】</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <!-- Situation A: Moving Up -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-center mb-2">🌟 상황 A: 현재 반이 쉬워 보일 때 (심화 제안)</h4>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex items-start gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                        <div class="bg-blue-50 p-2 rounded-lg rounded-tl-none">어머님, ○○이가 최근 수업 태도나 문제 해결력을 보면, 지금 반의 내용은 거의 완벽하게 소화하고 있어요.</div>
+                                    </div>
+                                    <div class="flex items-start gap-2 justify-end">
+                                        <div class="bg-gray-100 p-2 rounded-lg rounded-tr-none">아, 그래요? 아이가 집에서 "좀 쉬운 것 같아" 하긴 했어요.</div>
+                                        <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold shrink-0">M</div>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                        <div class="bg-blue-50 p-2 rounded-lg rounded-tl-none">맞습니다. 이 성취감이 지루함으로 바뀌기 전에, 더 도전적인 문제를 접하며 성장 속도를 높여주는 게 중요해요. 심화는 선택이 아니라, ○○이의 성장 속도를 존중해주는 과정입니다.</div>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- Situation B: Needing Support -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-center mb-2">🌟 상황 B: 현재 반을 버거워할 때 (보충 제안)</h4>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex items-start gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                        <div class="bg-blue-50 p-2 rounded-lg rounded-tl-none">어머님, ○○이가 최근 분수 단원에서 조금 어려움을 겪고 있어요. 개념 이해는 좋은데, 문제에 적용할 때 실수가 반복되고 있습니다.</div>
+                                    </div>
+                                    <div class="flex items-start gap-2 justify-end">
+                                        <div class="bg-gray-100 p-2 rounded-lg rounded-tr-none">네… 집에서도 좀 어려워하더라고요. 진도를 못 따라가는 건가요?</div>
+                                        <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold shrink-0">M</div>
+                                    </div>
+                                    <div class="flex items-start gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                        <div class="bg-blue-50 p-2 rounded-lg rounded-tl-none">아닙니다. 습관은 그대로 유지하면서 개념만 한 번 더 잡아주면 되는 단계예요. 현재 반을 유지하되, 이 단원만 보충 워크북을 병행해서 자신감을 채워주려고 합니다.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 2: Slump/Motivation Dip -->
+            <section id="slump" class="tab-content content-inactive">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800">PART 2. 슬럼프/의욕 저하 대응 상담</h2>
+                    <p class="mt-2 text-gray-600">아이의 마음을 먼저 읽고, 학부모와 함께 해결책을 찾는 파트너십의 기술입니다.</p>
+                </div>
+                 <div class="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-gray-200 space-y-10">
+                    <div>
+                        <h3 class="text-xl font-bold text-orange-700 mb-4">【상담의 목표: '비난'이 아닌 '이해'와 '전환'】</h3>
+                        <p class="text-gray-700">이 상담은 학생의 '문제'를 지적하는 자리가 아닙니다. 아이가 보내는 **'힘들다'는 신호를 우리가 먼저 감지**하고, 그 원인을 부모와 함께 분석하며, 아이의 감정을 존중하는 해결책을 찾는 과정입니다. 핵심은 **"노력 부족"이라는 프레임을 완전히 버리고, "일시적인 에너지 방전"**으로 상황을 재정의하는 것입니다.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-orange-700 mb-4">【주의사항: 감정을 무시하면 관계가 무너집니다】</h3>
+                         <blockquote class="border-l-4 border-orange-400 pl-4 py-2 my-2 text-gray-600">
+                           <p><strong>"이해 + 전환" 화법:</strong> "○○이가 요즘 지쳐 보이는 이유가 분명 있을 거예요**(이해)**. 그럴 땐 어려운 문제를 억지로 풀게 하기보다, 쉬운 문제라도 '해냈다'는 성공의 느낌을 다시 주는 게 더 효과적이에요**(전환)**."</p>
+                           <p class="mt-2"><strong>부모를 탐정이 아닌 파트너로 만드는 질문:</strong> "혹시 최근 ○○이 집에서는 어떤가요?", "시험이나 친구관계 등 스트레스받을 만한 일이 있었을까요?"라며 함께 원인을 찾아 나서는 자세를 보여주세요.</p>
+                         </blockquote>
+                    </div>
+                    <div>
+                         <h3 class="text-xl font-bold text-orange-700 mb-4">【실전 스크립트 연습】</h3>
+                        <div class="max-w-3xl mx-auto bg-gray-50 p-4 rounded-lg">
+                             <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                    <div class="bg-blue-50 p-3 rounded-lg rounded-tl-none">
+                                        <p>어머님, ○○이 요즘 수업 중에 예전보다 반응이 많이 줄었고요, 숙제도 이번 주엔 아예 비어 있어서 혹시 집에서도 어떤 변화가 있었을까 해서요.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 justify-end">
+                                    <div class="bg-gray-100 p-3 rounded-lg rounded-tr-none"><p>아… 요즘 애가 자꾸 유튜브만 보려고 하고, 밤잠도 늦게 자요. 숙제하라고 하면 짜증만 내고요.</p></div>
+                                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold shrink-0">M</div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                    <div class="bg-blue-50 p-3 rounded-lg rounded-tl-none">
+                                        <div class="relative inline-block tooltip-trigger">
+                                            <p class="text-blue-600 cursor-pointer">네, 아이가 그런 상태일 땐 ‘못해서’가 아니라 **‘힘이 빠져 있는 상태’**일 가능성이 커요. 특히 요즘처럼 날씨도 궂고 시험도 앞두면 아이들이 많이 지치더라고요.</p>
+                                            <div class="tooltip absolute bottom-full mb-2 bg-gray-800 text-white text-xs rounded py-2 px-3 z-10">
+                                                <strong>전략: 문제의 원인 외부화</strong><br>아이의 개인적인 문제(게으름 등)로 돌리지 않고, 날씨나 시험 등 외부 환경 탓으로 돌려주면 부모와 아이 모두 방어적인 태세를 풀게 됩니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                    <div class="bg-blue-50 p-3 rounded-lg rounded-tl-none">
+                                        <p>지금은 부담을 주기보다는, 작고 쉬운 과제라도 성공 경험을 만들어주는 게 중요해요. 다음 주는 문제 수를 절반으로 줄이되, ○○이가 “이건 할 수 있다”는 자신감을 회복할 수 있게 도와드릴게요. 어머님은 숙제 채점은 하지 마시고, “해왔네! 잘했어” 딱 한마디만 해주세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 3: Withdrawal/Closing -->
+            <section id="withdrawal" class="tab-content content-inactive">
+                 <div class="text-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-800">PART 3. 퇴원 및 마무리 상담</h2>
+                    <p class="mt-2 text-gray-600">아름다운 마무리가 다음 만남을 기약합니다. 관계를 지키는 이별의 기술입니다.</p>
+                </div>
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-gray-200 space-y-10">
+                     <div>
+                        <h3 class="text-xl font-bold text-rose-700 mb-4">【상담의 목표: 좋은 기억으로 관계를 마무리하기】</h3>
+                        <p class="text-gray-700">이 상담의 목표는 퇴원을 막는 것이 아닙니다. 퇴원 사유가 무엇이든, 아이와 학부모가 우리 학원에 대해 **'좋은 기억'**을 가지고 떠나게 하는 것입니다. 잘 정리된 퇴원 상담은 **미래의 재등록, 형제자매 등록, 긍정적인 입소문**으로 이어지는 가장 확실한 투자입니다. 서운함이나 방어적인 태도는 절대 금물입니다.</p>
+                    </div>
+                    <div>
+                         <h3 class="text-xl font-bold text-rose-700 mb-4">【주의사항: 감정을 다스리고 여지를 남기세요】</h3>
+                         <div class="bg-rose-50 p-4 rounded-lg">
+                            <p class="font-bold text-rose-800 mb-1">🌱 나중을 위한 '감정의 여지' 남기기</p>
+                            <p class="text-gray-700">"이번에 그만두시더라도, ○○이가 수학 때문에 힘들어하면 언제든지 편하게 연락 주세요. 제가 아는 선에서 얼마든지 조언해 드릴게요." 처럼, 학원과 학생의 관계가 끝나도 선생님과 학생의 좋은 인연은 계속될 수 있다는 뉘앙스를 풍기세요.</p>
+                         </div>
+                    </div>
+                     <div>
+                         <h3 class="text-xl font-bold text-rose-700 mb-4">【실전 스크립트 연습】</h3>
+                        <div class="max-w-3xl mx-auto bg-gray-50 p-4 rounded-lg">
+                             <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                    <div class="bg-blue-50 p-3 rounded-lg rounded-tl-none">
+                                        <p>어머님, ○○이 최근 수업에 못 와서 걱정돼 연락드렸어요. 혹시 컨디션이나 일정상 어려운 부분 있으셨을까요?</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 justify-end">
+                                    <div class="bg-gray-100 p-3 rounded-lg rounded-tr-none"><p>네, 시험 끝나고 아이가 좀 지쳐 보이기도 하고… 이번 달은 잠깐 쉬어야 할 것 같아요.</p></div>
+                                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold shrink-0">M</div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                    <div class="bg-blue-50 p-3 rounded-lg rounded-tl-none">
+                                         <div class="relative inline-block tooltip-trigger">
+                                            <p class="text-blue-600 cursor-pointer">그 마음 충분히 이해돼요. 그동안 ○○이가 정말 성실하게 따라와 줘서 고마웠습니다.</p>
+                                            <div class="tooltip absolute bottom-full mb-2 bg-gray-800 text-white text-xs rounded py-2 px-3 z-10">
+                                                <strong>전략: 무조건적인 수용과 감사 표시</strong><br>이유를 캐묻거나 설득하려 하지 말고, 먼저 부모의 결정을 존중하고 아이에 대한 감사를 표현하여 대화의 긴장감을 낮춥니다.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold shrink-0">S</div>
+                                    <div class="bg-blue-50 p-3 rounded-lg rounded-tl-none">
+                                        <p>그럼 이번 기회에 푹 쉬면서 재충전하는 게 좋겠네요. 혹시 다시 시작하고 싶을 때는 언제든지 편하게 연락 주세요. 자리를 맡아두진 못하지만, 최대한 맞춰드릴게요. ○○이의 공부를 늘 응원하겠습니다.</p>
+                                    </div>
+                                </div>
+                                 <div class="flex items-start gap-3 justify-end">
+                                    <div class="bg-gray-100 p-3 rounded-lg rounded-tr-none"><p>네, 감사해요. 선생님 덕분에 수학에 조금씩 자신감이 생긴 것 같았어요.</p></div>
+                                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold shrink-0">M</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 4: Tools -->
+            <section id="tools" class="tab-content content-inactive">
+                 <div class="text-center mb-8">
+                     <h2 class="text-2xl font-bold text-gray-800">상담 필수 도구: 문제 상황 진단 차트</h2>
+                    <p class="mt-2 text-gray-600">상담 전 이 차트를 활용하여 상황을 객관적으로 분석하고 전략을 세우세요.</p>
+                     <button id="print-button" class="mt-4 bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors no-print">차트 인쇄하기</button>
+                </div>
+                
+                <div id="printable-chart" class="bg-white p-8 rounded-lg shadow-lg border border-gray-200 max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-gray-800">문제 상황 진단 차트</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 border-b pb-4 mb-4">
+                        <div><strong class="w-28 inline-block">상담일자:</strong></div>
+                        <div><strong class="w-28 inline-block">학생이름:</strong></div>
+                        <div><strong class="w-28 inline-block">상담 종류:</strong> □조정 □슬럼프 □퇴원</div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-2 text-gray-700">1. 관찰된 현상 (Fact)</h4>
+                        <div class="w-full h-16 bg-gray-100 rounded-md border p-2 text-sm text-gray-500">예: 최근 2주간 숙제 미제출, 수업 중 멍한 표정, 단원평가 60점</div>
+                    </div>
+                     <div class="mb-6">
+                        <h4 class="font-bold mb-2 text-gray-700">2. 예상 원인 및 학부모 피드백</h4>
+                        <div class="w-full h-16 bg-gray-100 rounded-md border p-2 text-sm text-gray-500">예: 시험 후 번아웃, 부모 피드백 "집에서 유튜브만 보려고 함"</div>
+                    </div>
+                     <div class="mb-6">
+                        <h4 class="font-bold mb-2 text-gray-700">3. 상담 핵심 목표</h4>
+                        <div class="w-full h-16 bg-gray-100 rounded-md border p-2 text-sm text-gray-500">예: 슬럼프 상황 공감 및 부담 줄여주기, 작은 성공 경험 제안</div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold mb-2 text-gray-700">4. 제안할 해결책 (Action Plan)</h4>
+                            <div class="w-full h-24 bg-gray-100 rounded-md border p-2 text-sm text-gray-500">예: 2주간 숙제량 50%로 조정, 격려 중심 피드백, 오답노트 대신 복습 프린트 제공</div>
+                        </div>
+                        <div>
+                             <h4 class="font-bold mb-2 text-gray-700">5. 학부모 협조 요청사항</h4>
+                             <div class="w-full h-24 bg-gray-100 rounded-md border p-2 text-sm text-gray-500">예: 숙제 여부만 확인하고 채점 X, "해왔네" 칭찬 한마디 해주기</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navTabs = document.querySelectorAll('.nav-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    navTabs.forEach(t => t.classList.replace('tab-active', 'tab-inactive'));
+                    tabContents.forEach(c => c.classList.replace('content-active', 'content-inactive'));
+                    tab.classList.replace('tab-inactive', 'tab-active');
+                    document.getElementById(tab.dataset.tab).classList.replace('content-inactive', 'content-active');
+                });
+            });
+            
+            document.getElementById('print-button').addEventListener('click', () => {
+                window.print();
+            });
+        });
+    </script>
+
+</body>
+</html>
